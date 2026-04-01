@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Enums;
+
+enum ApplicationStatus: string
+{
+    case Applied = 'applied';
+    case PreliminaryInterview = 'preliminary_interview';
+    case TechnicalInterview = 'technical_interview';
+    case Offer = 'offer';
+    case Accepted = 'accepted';
+    case Rejected = 'rejected';
+    case Ghosted = 'ghosted';
+
+    public function label(): string
+    {
+        return match ($this) {
+            self::Applied => 'Applied',
+            self::PreliminaryInterview => 'Preliminary Interview',
+            self::TechnicalInterview => 'Technical Interview',
+            self::Offer => 'Offer',
+            self::Accepted => 'Accepted',
+            self::Rejected => 'Rejected',
+            self::Ghosted => 'Ghosted',
+        };
+    }
+
+    public function color(): string
+    {
+        return match ($this) {
+            self::Applied => 'blue',
+            self::PreliminaryInterview => 'yellow',
+            self::TechnicalInterview => 'indigo',
+            self::Offer => 'green',
+            self::Accepted => 'green',
+            self::Rejected => 'red',
+            self::Ghosted => 'zinc',
+        };
+    }
+}
