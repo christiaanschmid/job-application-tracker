@@ -169,7 +169,7 @@ new #[Title('Job Applications')] class extends Component {
     }
 }; ?>
 
-<x-layouts::app :title="__('Job Applications')">
+<div>
     <div class="space-y-6">
         <div class="flex items-center justify-between">
             <flux:heading size="xl">{{ __('Job Applications') }}</flux:heading>
@@ -287,4 +287,4 @@ new #[Title('Job Applications')] class extends Component {
             </div>
         </div>
     </flux:modal>
-</x-layouts::app>
+</div>
