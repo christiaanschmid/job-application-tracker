@@ -220,12 +220,19 @@ new #[Title('Job Applications')] class extends Component {
                                 {{ $application->status->label() }}
                             </flux:badge>
                         </flux:table.cell>
-                        <flux:table.cell class="whitespace-nowrap">{{ $application->date_applied->format('M d, Y') }}</flux:table.cell>
+                        <flux:table.cell class="whitespace-nowrap">
+                            @if($application->status !== ApplicationStatus::Interested)
+                                {{ $application->date_applied->format('M d, Y') }}
+                           @endif
+                        </flux:table.cell>
                         <flux:table.cell>{{ $application->salaryRange() }}</flux:table.cell>
                         <flux:table.cell class="text-amber-500">{{ $this->stars($application->interest) }}</flux:table.cell>
                         <flux:table.cell>{{ $application->location ?? '—' }}</flux:table.cell>
                         <flux:table.cell>
                             <div class="flex justify-end gap-1">
+                                @if($application->job_url && $application->status === ApplicationStatus::Interested)
+                                    <flux:button size="sm" variant="primary" icon="arrow-top-right-on-square" :href="$application->job_url" target="_blank" rel="noopener" color="emerald"/>
+                                @endif
                                 <flux:button size="sm" variant="ghost" icon="pencil-square" wire:click="openEditModal({{ $application->id }})" />
                                 <flux:button size="sm" variant="ghost" icon="trash" wire:click="confirmDelete({{ $application->id }})" />
                             </div>

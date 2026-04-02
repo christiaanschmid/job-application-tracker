@@ -1,0 +1,3 @@
+{"type":"server-started","port":51856,"host":"127.0.0.1","url_host":"localhost","url":"http://localhost:51856","screen_dir":"/Users/christiaanschmid/code/job-application-tracker/.superpowers/brainstorm/91828-1775078238/content","state_dir":"/Users/christiaanschmid/code/job-application-tracker/.superpowers/brainstorm/91828-1775078238/state"}
+{"type":"screen-added","file":"/Users/christiaanschmid/code/job-application-tracker/.superpowers/brainstorm/91828-1775078238/content/waiting.html"}
+{"type":"server-stopped","reason":"idle timeout"}
