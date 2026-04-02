@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum ApplicationStatus: string
 {
+    case Interested = 'interested';
     case Applied = 'applied';
     case PreliminaryInterview = 'preliminary_interview';
     case TechnicalInterview = 'technical_interview';
@@ -15,6 +16,7 @@ enum ApplicationStatus: string
     public function label(): string
     {
         return match ($this) {
+            self::Interested => 'Interested',
             self::Applied => 'Applied',
             self::PreliminaryInterview => 'Preliminary Interview',
             self::TechnicalInterview => 'Technical Interview',
@@ -28,6 +30,7 @@ enum ApplicationStatus: string
     public function color(): string
     {
         return match ($this) {
+            self::Interested => 'gray',
             self::Applied => 'blue',
             self::PreliminaryInterview => 'yellow',
             self::TechnicalInterview => 'indigo',

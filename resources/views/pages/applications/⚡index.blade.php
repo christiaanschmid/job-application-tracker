@@ -173,25 +173,28 @@ new #[Title('Job Applications')] class extends Component {
     <div class="space-y-6">
         <div class="flex items-center justify-between">
             <flux:heading size="xl">{{ __('Job Applications') }}</flux:heading>
-            <flux:button icon="plus" wire:click="openCreateModal">
+            <flux:button  class="cursor-pointer" icon="plus" variant="primary" wire:click="openCreateModal">
                 {{ __('New Application') }}
             </flux:button>
         </div>
 
         {{-- Filters --}}
-        <div class="flex items-center gap-3">
-            <flux:input
-                wire:model.live.debounce.300ms="search"
-                placeholder="Search company or title..."
-                icon="magnifying-glass"
-                class="max-w-xs"
-            />
-            <flux:select wire:model.live="statusFilter" placeholder="All Statuses" class="max-w-48">
-                <flux:select.option value="">All Statuses</flux:select.option>
-                @foreach (ApplicationStatus::cases() as $status)
-                    <flux:select.option value="{{ $status->value }}">{{ $status->label() }}</flux:select.option>
-                @endforeach
-            </flux:select>
+        <div class="flex items-center justify-between gap-3">
+            <div class="w-1/2 shrink-0 grow-0">
+                <flux:input
+                    wire:model.live.debounce.300ms="search"
+                    placeholder="Search company or title"
+                    icon="magnifying-glass"
+                />
+            </div>
+            <div>
+                <flux:select wire:model.live="statusFilter" placeholder="All Statuses">
+                    <flux:select.option value="">All Statuses</flux:select.option>
+                    @foreach (ApplicationStatus::cases() as $status)
+                        <flux:select.option value="{{ $status->value }}">{{ $status->label() }}</flux:select.option>
+                    @endforeach
+                </flux:select>
+            </div>
         </div>
 
         {{-- Table --}}
@@ -234,7 +237,7 @@ new #[Title('Job Applications')] class extends Component {
     </div>
 
     {{-- Create/Edit Modal --}}
-    <flux:modal wire:model="showFormModal" class="max-w-lg">
+    <flux:modal wire:model="showFormModal" class="max-w-2xl">
         <div class="space-y-6">
             <flux:heading size="lg">
                 {{ $editingId ? __('Edit Application') : __('New Application') }}
