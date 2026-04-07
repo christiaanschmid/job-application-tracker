@@ -244,7 +244,7 @@ new #[Title('Job Applications')] class extends Component {
     </div>
 
     {{-- Create/Edit Modal --}}
-    <flux:modal wire:model="showFormModal" class="max-w-2xl">
+    <flux:modal wire:model="showFormModal" class="w-4xl">
         <div class="space-y-6">
             <flux:heading size="lg">
                 {{ $editingId ? __('Edit Application') : __('New Application') }}
@@ -253,7 +253,19 @@ new #[Title('Job Applications')] class extends Component {
             <form wire:submit="save" class="space-y-4">
                 <flux:input wire:model="company_name" label="Company Name" required />
                 <flux:input wire:model="job_title" label="Job Title" required />
-                <flux:input wire:model="job_url" label="Job URL" type="url" />
+                <flux:field>
+                    <flux:label>Job URL</flux:label>
+                    <flux:input.group>
+                        <flux:input wire:model="job_url" type="url" />
+                        <flux:button
+                            href="{{ $job_url }}"
+                            target="_blank"
+                            icon="arrow-right"
+                        >
+                            Visit
+                        </flux:button>
+                    </flux:input.group>
+                </flux:field>
                 <flux:input wire:model="location" label="Location" placeholder="e.g. Remote, NYC, Hybrid - Austin" />
                 <flux:input wire:model="date_applied" label="Date Applied" type="date" required />
 
