@@ -55,6 +55,11 @@ new #[Title('Job Applications')] class extends Component {
             ->paginate(15);
     }
 
+    public function updatingSearch(): void
+    {
+        $this->resetPage();
+    }
+
     public function sort(string $column): void
     {
         if ($this->sortBy === $column) {
