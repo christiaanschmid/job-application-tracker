@@ -11,6 +11,7 @@ enum ApplicationStatus: string
     case Offer = 'offer';
     case Accepted = 'accepted';
     case Rejected = 'rejected';
+    case NotSelected = 'not_selected';
     case Ghosted = 'ghosted';
 
     public function label(): string
@@ -23,6 +24,7 @@ enum ApplicationStatus: string
             self::Offer => 'Offer',
             self::Accepted => 'Accepted',
             self::Rejected => 'Rejected',
+            self::NotSelected => 'Not Selected',
             self::Ghosted => 'Ghosted',
         };
     }
@@ -37,6 +39,7 @@ enum ApplicationStatus: string
             self::Offer => 'green',
             self::Accepted => 'green',
             self::Rejected => 'red',
+            self::NotSelected => 'red',
             self::Ghosted => 'zinc',
         };
     }

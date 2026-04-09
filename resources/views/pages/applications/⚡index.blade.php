@@ -263,8 +263,9 @@ new #[Title('Job Applications')] class extends Component {
                     <flux:input.group>
                         <flux:input wire:model="job_url" type="url" />
                         <flux:button
-                            href="{{ $job_url }}"
-                            target="_blank"
+                            x-on:click="window.open($wire.job_url, '_blank')"
+                            variant="primary"
+                            color="emerald"
                             icon="arrow-right"
                         >
                             Visit
