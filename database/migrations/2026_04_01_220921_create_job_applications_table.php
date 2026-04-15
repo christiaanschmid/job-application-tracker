@@ -16,9 +16,9 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->string('company_name');
             $table->string('job_title');
-            $table->string('job_url')->nullable();
+            $table->string('job_url', 2048)->nullable();
             $table->string('location')->nullable();
-            $table->date('date_applied');
+            $table->date('date_applied')->nullable();
             $table->string('status')->default('applied');
             $table->unsignedInteger('salary_min')->nullable();
             $table->unsignedInteger('salary_max')->nullable();

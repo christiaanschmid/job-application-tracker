@@ -118,6 +118,10 @@ new #[Title('Job Applications')] class extends Component {
             'notes' => $validated['notes'] ?: null,
         ]);
 
+        if ($validated['status'] === ApplicationStatus::Interested->value) {
+            $validated['date_applied'] = null;
+        }
+
         if ($this->editingId) {
             $application = JobApplication::where('user_id', auth()->id())->findOrFail($this->editingId);
             $application->update($validated);
