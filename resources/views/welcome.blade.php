@@ -37,7 +37,7 @@
 <div class="flex items-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
     <main>
         <h1 class="flex flex-col items-start text-left font-bold leading-none text-gray-900 dark:text-white space-y-4">
-            <span class="block text-7xl">You've</span>
+            <span class="block text-7xl">you've</span>
             <span class="block text-8xl">got</span>
             <span class="block text-9xl">this</span>
         </h1>
